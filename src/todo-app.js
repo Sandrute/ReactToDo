@@ -1,27 +1,5 @@
 'use strict';
 
-const e = React.createElement;
-
-class LikeButton extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {liked: false};
-    }
-
-    render() {
-        if (this.state.liked) {
-            return 'You liked this.';
-        }
-
-        return e(
-            'button',
-            {onClick: () => this.setState({liked: true})},
-            'Like'
-        );
-    }
-}
-
-
 class TodoApp extends React.Component {
     constructor(props) {
         super(props);
@@ -83,18 +61,3 @@ class TodoApp extends React.Component {
     }
 }
 
-class TodoList extends React.Component {
-    render() {
-        return React.createElement(
-            "ul",
-            null,
-            this.props.items.map(item => React.createElement(
-                "li",
-                {key: item.id},
-                item.text
-            ))
-        );
-    }
-}
-
-ReactDOM.render(React.createElement(TodoApp, null), mountNode);
